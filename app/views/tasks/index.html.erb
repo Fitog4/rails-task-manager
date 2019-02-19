@@ -1,0 +1,9 @@
+<h1>Your tasks</h1>
+
+<%= link_to 'Create new task', new_task_path %>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li>ID: <%= task.id %>. <%= task.title.capitalize %> ( <%= '✓' if task.completed %> ) <%= link_to 'Details', task_path(task.id) %> <%= link_to 'Edit', edit_task_path(task.id) %> <%= link_to 'Delete', task_path(task.id), method: :delete, data: { confirm: "Are you sure?" } %> <%= link_to 'Mark as completed', mark_task_as_completed_path(task.id) %></li>
+  <% end %>
+</ul>
